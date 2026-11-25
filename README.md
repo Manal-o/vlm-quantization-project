@@ -16,7 +16,7 @@ Projet 7. Comparaison de deux petits modèles vision-langage en fp16, 8 bits et 
 
 ## Installation (Google Colab, GPU T4)
 ```python
-!git clone https://github.com/<utilisateur>/vlm-quantization-project.git
+!git clone https://github.com/Manal-o/vlm-quantization-project.git
 %cd vlm-quantization-project
 !pip install -q -r requirements.txt
 !python data/download_flickr8k.py --n 500
