@@ -8,6 +8,7 @@ try:
 except ImportError:
     from transformers import AutoModelForVision2Seq as AutoVLM
 
+
 def load(model_id: str, mode: str = "fp16"):
     kwargs = {"device_map": "auto"}
     if mode == "fp16":
@@ -23,7 +24,7 @@ def load(model_id: str, mode: str = "fp16"):
     else:
         raise ValueError(f"Mode inconnu : {mode}")
     processor = AutoProcessor.from_pretrained(model_id)
-    model = AutoModelForVision2Seq.from_pretrained(model_id, **kwargs)
+    model = AutoVLM.from_pretrained(model_id, **kwargs)
     model.eval()
     return processor, model
 
