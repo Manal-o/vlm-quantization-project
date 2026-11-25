@@ -2,8 +2,11 @@
 import gc
 import time
 import torch
-from transformers import AutoProcessor, AutoModelForVision2Seq, BitsAndBytesConfig
-
+from transformers import AutoProcessor, BitsAndBytesConfig
+try:
+    from transformers import AutoModelForImageTextToText as AutoVLM
+except ImportError:
+    from transformers import AutoModelForVision2Seq as AutoVLM
 
 def load(model_id: str, mode: str = "fp16"):
     kwargs = {"device_map": "auto"}
