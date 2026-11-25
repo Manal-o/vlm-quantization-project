@@ -1,0 +1,17 @@
+torch
+transformers>=4.45
+accelerate
+bitsandbytes
+datasets
+pillow
+scipy
+numpy
+pandas
+matplotlib
+pyyaml
+gradio
+pycocoevalcap
+peft
+trl
+qwen-vl-utils
+tqdm

@@ -1,0 +1,22 @@
+# Données et modèles lourds (ne jamais commiter)
+data/raw/
+data/processed/
+data/*.zip
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+outputs/
+lora_weights/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+*token*.txt

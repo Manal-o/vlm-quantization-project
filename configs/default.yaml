@@ -1,0 +1,34 @@
+# Paramètres communs à toutes les expériences
+seed: 42
+option: "A"            # "A" = légendes pour LoRA, "B" = VLM comme juge
+
+data:
+  dataset: "flickr8k"
+  n_images: 500        # sous-ensemble d'évaluation (500 à 2000)
+  image_size: null     # laissé au processor du modèle
+
+models:
+  - name: "smolvlm"
+    hf_id: "HuggingFaceTB/SmolVLM-Instruct"
+  - name: "qwen2vl"
+    hf_id: "Qwen/Qwen2-VL-2B-Instruct"
+
+precisions: ["fp16", "int8", "int4"]
+
+generation:
+  do_sample: false     # reproductibilité
+  max_new_tokens: 60
+
+prompts:
+  caption: "Describe this image in one short sentence."
+  judge: >
+    Rate from 1 (unrelated) to 4 (perfect) how well this caption describes
+    the image. Answer with a single digit. Caption: "{caption}"
+
+lora:                  # Option A uniquement
+  n_train_images: 300
+  r: 8
+  alpha: 16
+  batch_size: 1
+  grad_accum: 8
+  gradient_checkpointing: true
